@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:white_mountain_peak_tracker/APIRequests/LoginRequest.dart';
+import 'package:white_mountain_peak_tracker/Models/LoginModel.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
+
+  LoginInfoPostBody loginInfoPostBody = LoginInfoPostBody(userId: "nathanbeaumont.617@gmail.com", password: "slash208");
+  Token? token = await APIRequests().loginUser(loginInfoPostBody);
+  print(token);
 }
 
 class MyApp extends StatelessWidget {
